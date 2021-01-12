@@ -573,7 +573,7 @@ function toRadians (degrees) {
 
             return
 
-        };
+        }
 
         if(mode==="simulation"){
 
@@ -824,7 +824,7 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
         let count=0;
     
         let rowCounter, colCounter;
-
+        let j;
         let fromColumn, toColumn;
 
         fromColumn = 0;
@@ -891,6 +891,8 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
                             let className = (forPlayer==="player1")? "circle circlePlayerOne" : "circle circlePlayerTwo";
 
                             let classSwitch = 0;
+
+                            let p;
 
                             winnerAnimation = setInterval(()=>{
 
@@ -964,6 +966,7 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
         let count=0; 
 
         let rowCounter, colCounter;
+        let j;
 
         let fromColumn, toColumn;
 
@@ -1031,6 +1034,8 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
                             let className = (forPlayer==="player1")? "circle circlePlayerOne" : "circle circlePlayerTwo";
 
                             let classSwitch = 0;
+
+                            let p;
 
                             winnerAnimation = setInterval(()=>{
 
@@ -1102,6 +1107,8 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
 
 function finishCurrentGame(){
 
+    let idBuffer;
+
     clearInterval(gamingCountDown);
     clearTimeout(cpuThinking);
 
@@ -1150,6 +1157,8 @@ function finishCurrentGame(){
 }
 
 function blockArrowsInGame(player){
+
+    let idBuffer;
     
     let classPlayer=(player==="player1")?"arrowIngamePlayer1":"arrowIngamePlayer2";
 
@@ -1172,6 +1181,8 @@ function blockArrowsInGame(player){
 
 function unblockArrowsInGame(player){
 
+    let idBuffer;
+
     let classPlayer=(player==="player1")?"arrowIngamePlayer1":"arrowIngamePlayer2";
 
     for (let i=1 ; i<8 ; i++){
@@ -1186,9 +1197,9 @@ function unblockArrowsInGame(player){
 
 function initializateArrowsClass(){
 
-    for (let i=1 ; i<8 ; i++){
+    let idBuffer;
 
-        let idBuffer;
+    for (let i=1 ; i<8 ; i++){
 
         idBuffer = `arrowId1${i}`
     

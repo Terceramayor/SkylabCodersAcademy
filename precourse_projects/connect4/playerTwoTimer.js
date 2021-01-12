@@ -165,12 +165,6 @@ let timerSecondPlayersketch = new p5 ((sketch) => {
       
     }
 
-  function player1Color(transparency){
-    
-    return sketch.color(255, 204, 0, transparency)
-  
-  }
-
   function player2Color(transparency){
     
     return sketch.color(166, 43, 43, transparency)

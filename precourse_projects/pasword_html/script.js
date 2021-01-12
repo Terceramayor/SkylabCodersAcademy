@@ -99,15 +99,15 @@ function check_valid_name(){    //Función para controla que se introduzca un no
 
         dim = 0;
 
-    } if ( 0 === player_name.length || dim===-1){
+    } 
+    
+    if ( 0 === player_name.length || dim===-1){
 
         return false
 
-    } else {
-
-        return true
-
-    }
+    } 
+    
+    return true
 
 }
 
@@ -367,9 +367,10 @@ function ranking(){ //Función que calcula el resultado de la partida y actualiz
     let player_found=false;
     let score_improved=false;
     let player_score_improved=false;
-    let player_current_score, player_current_position;
+    let player_current_position;
+    let score_improved_position;
     
-    for (i=0;i<questions.length;i++){     //Contamos el número de veces que hemos acertado
+    for (let i=0;i<questions.length;i++){     //Contamos el número de veces que hemos acertado
 
         if(current_game_questions[i]==="correct"){
 
@@ -379,7 +380,7 @@ function ranking(){ //Función que calcula el resultado de la partida y actualiz
 
     }
 
-    for(i=1;i<11;i++){
+    for(let i=1;i<11;i++){
 
         possition_name="pos".concat(i.toString()).concat("_name");
         possition_score="pos".concat(i.toString()).concat("_score");
@@ -395,7 +396,7 @@ function ranking(){ //Función que calcula el resultado de la partida y actualiz
         if (document.getElementById(possition_name).innerHTML===player_name){   //Si encontramos el jugador en el ranking, miramos si ha mejorado si marca
             
             player_found=true;
-            player_current_score=document.getElementById(possition_score).innerHTML;
+            
             player_current_position=i-1;
 
             if(game_score>document.getElementById(possition_score).innerHTML){
@@ -464,9 +465,9 @@ function ranking(){ //Función que calcula el resultado de la partida y actualiz
 
     }
 
-    current_ranking= current_ranking.sort(function(a,b){return (b["current_score"]-a["current_score"]);;}); //Reordenamos de mayor a menor el ranking
+    current_ranking= current_ranking.sort(function(a,b){return (b["current_score"]-a["current_score"]);}); //Reordenamos de mayor a menor el ranking
      
-     for(i=1;i<11;i++){ //Mostramos en el ranking los datos actualizamos
+     for(let i=1;i<11;i++){ //Mostramos en el ranking los datos actualizamos
 
         possition_name="pos".concat(i.toString()).concat("_name");
         possition_score="pos".concat(i.toString()).concat("_score");
@@ -569,7 +570,7 @@ function blink_current_letter(){   //Esta función hace parpadear una letra
 
         } else {
 
-            document.getElementById(letter_id).className=letter_class.concat(" control_color_blink_state_1");;
+            document.getElementById(letter_id).className=letter_class.concat(" control_color_blink_state_1");
 
         }
 

@@ -134,8 +134,6 @@ function ini() {  //Esta función pide el nombre del usuario
 
         dim = 0;
 
-        debugger
-
         console.log(`Please insert a valid name!`)
         name = prompt(`WELCOME THE TO SKYLAB PASAPALABRA GAME.TO BEGIN, PLEASE STATE YOUR NAME: `, `name?`);
 
@@ -165,15 +163,17 @@ function ini() {  //Esta función pide el nombre del usuario
 
 function word(letterNum,level,questions){   //Esta función presenta en la pantalla la pregunta correspondiente
 
-      response = prompt(`${questions[letterNum][level].question}`,`Your answer`);
+    let response = prompt(`${questions[letterNum][level].question}`,`Your answer`);
 
 return response;
 
 }
 
-function check(letterNum,level,questions,response,stopcondition){   //Esta función se encarga de comprobar si la respuesta introducida es correcta, en cuyo caso cambia el "status" de la palabra a "1"
+function check(letterNum,level,questions,response){   //Esta función se encarga de comprobar si la respuesta introducida es correcta, en cuyo caso cambia el "status" de la palabra a "1"
 
-    if (response==null){
+    let stopcondition;
+
+    if (response==null || response.toLowerCase()=="end"){
 
     stopcondition=true;
 
@@ -192,37 +192,28 @@ function check(letterNum,level,questions,response,stopcondition){   //Esta funci
 
         questions[letterNum][level].status="correct";
         remaining=remaining-1;
+
+        stopcondition=false;
         
-        return stopcondition;
-
-    } else if (response.toLowerCase()=="end") {
-
-        stopcondition=true;
-
-        let points = 0; 
-    
-        points = score(questions, points);
-        scoreReset(questions);
-
-        console.log(`Game finished by the user. You made ${points} in this game, though it won't enter the ranking!`)
-
         return stopcondition;
 
     } else if(response.toLowerCase()=="pasapalabra"){
 
         console.log(`Word skipped!!`)
 
+        stopcondition=false;
+
         return stopcondition;
 
-    }
-        
-    else {
+    } else {
 
         console.log(`\n\n\nINCORRECT ASNWER FOR ${questions[letterNum][level].letter.toUpperCase()}. ${questions[letterNum][level].question} -> ${questions[letterNum][level].answer}\n\n\n`);
 
         questions[letterNum][level].status="incorrect";
 
         remaining=remaining-1;
+
+        stopcondition=false;
 
         return stopcondition;
 
@@ -253,7 +244,7 @@ result=0;
 
 function variety(){     //Función pide al usuario elegir el nivel de difficultad entre tres posibles
 
-    level = parseInt(prompt("Please select the difficulty level [1-2-3]"))-1;
+   let level = parseInt(prompt("Please select the difficulty level [1-2-3]"))-1;
     
     while (level!==0 && level!==1 && level!==2){
 
@@ -349,6 +340,7 @@ let result;
 let level;
 let stopcondition=false;
 let roundControl=false;
+let letterNum;
 
 
 let rank=[];
@@ -387,7 +379,7 @@ while (stopcondition==false) {
 
         response = word(letterNum,level,questions);
         
-        stopcondition = check(letterNum,level,questions,response,stopcondition);
+        stopcondition = check(letterNum,level,questions,response);
         
         letterNum = (letterNum===26) ? 0 : letterNum +1;
 

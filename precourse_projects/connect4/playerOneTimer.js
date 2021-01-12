@@ -167,11 +167,5 @@ let timerFirstPlayersketch = new p5 ((sketch) => {
     return sketch.color(255, 204, 0, transparency)
   
   }
-
-  function player2Color(transparency){
-    
-    return sketch.color(166, 43, 43, transparency)
-  
-  }
     
 },document.getElementById("flexboxGridTimerFirstPlayerId"));
