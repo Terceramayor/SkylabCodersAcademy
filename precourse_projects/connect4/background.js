@@ -29,7 +29,6 @@ let backgroundSketch = new p5 ((sketch) => {
       dynamic_width = document.getElementById("canvasGridContainerId").offsetWidth;
       dynamic_height = document.getElementById("canvasGridContainerId").offsetHeight;
 
-      escaper_posY = dynamic_height*0.5;
 
       sketch.createCanvas(dynamic_width, dynamic_height);
       

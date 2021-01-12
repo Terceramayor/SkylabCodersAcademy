@@ -13,16 +13,18 @@ function ini() {  //Esta función pide el nombre del usuario e indica que comien
     
     if (dim===name.length){
 
-        dim = false;
+        dim = -1;
         
     } else {
 
         dim = 0;
 
-    } while (typeof(name)!="string" || name==="name?" || 0 === name.length || dim===false){
+    } while (typeof(name)!="string" || name==="name?" || 0 === name.length || dim===-1){
 
         console.log(`Please insert a valid name!`)
         name = prompt(`WELCOME THE TO SKYLAB BINGO GAME.TO BEGIN, PLEASE STATE YOUR NAME: `, `name?`);
+
+        dim=0;
 
         for (let i=0; i<name.length;i++){       //Comprobamos si se han introducido solo espacios
 
@@ -32,7 +34,7 @@ function ini() {  //Esta función pide el nombre del usuario e indica que comien
         
         if (dim===name.length){
     
-            dim = false;
+            dim = -1;
                 
         } else {
 
@@ -124,6 +126,7 @@ function cartTable(arr) {   // Esta función se encarga de organizar la matriz q
 function ball(ballArray){    //Esta función se encarga de generar el número random que simula el número sacado aleatoriamente
 
         let ballRepeat=false;   // Eta variable se usa para controla que el número que sale del bombo no se repita
+        let ballNumBuffer;
 
         do {    //El proceso de generación del número aleatorio se repite hasta que salga un número distinto de cero y que no haya salido ya            
             
@@ -387,7 +390,7 @@ function bingo(){   //Esta es la función principal que se encarga de la ejecuci
 
     let cartNum=[];     //Variable que almacena en forma de matriz los valores del carton
     let carton={};      //Variable que almacena en forma de objeto los valores del carton
-    let cartonOk="No";  //Variable usada para comprobar si el carton le gusta al usuario
+    let cartonOk;  //Variable usada para comprobar si el carton le gusta al usuario
     let gameStatus=[];  //Variable que almacena las lineas que se van realizando y, de darse el caso, el BINGO
     let ballArray=[];   //Variable que almacena los numeros que van saldiendo del bombo
     let turn=0;         //Variable para contar los turnos

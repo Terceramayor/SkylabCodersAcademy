@@ -27,11 +27,13 @@ frameRateProcessing();
 
 function gameReset (){
 
+    let idBuffer;
+
     for (let i=0 ; i<6; i++){
 
         gameBoard[i]=[];
     
-        for (j=0 ; j<7; j++){
+        for (let j=0 ; j<7; j++){
     
             gameBoard[i][j]="empty";
     
@@ -399,7 +401,7 @@ function checkfactibleMoves(cpuBestOptionToCheck){
 
 function checkIfValidNames(nameOne, nameTwo){
     
-    names=[nameOne, nameTwo];
+    let names=[nameOne, nameTwo];
 
     let dim=0;
 
@@ -413,7 +415,7 @@ function checkIfValidNames(nameOne, nameTwo){
         
         if (dim===names[i].length){
 
-            dim = false;
+            dim = -1;
             
         } else {
 
@@ -421,7 +423,7 @@ function checkIfValidNames(nameOne, nameTwo){
 
         } 
         
-        if (0 === names[i].length || dim===false || names[i]==="null"){
+        if (0 === names[i].length || dim===-1 || names[i]==="null"){
 
             backgroundHighlight();
 
@@ -454,7 +456,7 @@ function gaming(){
 
     if(game.turn==="player2" && game.playerTwo==="CPU" ){
 
-        mightyCPU(game.turn);
+        mightyCPU();
 
     }
 
@@ -957,7 +959,7 @@ function checkIfConnect4(forPlayer,mode,col, caseControl){
     }
 
 
-    function RightTopLeftBottom(forPlayer,mode,col){ 
+    function RightTopLeftBottom(forPlayer,mode,col,caseControl){ 
         
         let count=0; 
 

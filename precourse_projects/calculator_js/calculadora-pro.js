@@ -8,7 +8,9 @@ function input() {      //Esta función se encarga de generar un array válido d
 
     if (numLength==0){
 
-        return numbers=[0];
+        numbers=[0]
+
+        return numbers;
 
     }
 
@@ -79,7 +81,7 @@ function calculator(){  //Esta función organiza el flow de ejecución de la cal
 
     while (stopCondition == false) {
 
-    numbers = input()
+    let numbers = input()
 
     calculus (numbers)
     

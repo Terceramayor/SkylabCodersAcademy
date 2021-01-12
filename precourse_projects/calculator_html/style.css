@@ -46,7 +46,7 @@
     grid-row: 1 / 2;
     color: white;
     background-color: rgb(75, 75, 75);
-    font-family: Arial;
+    font-family: Arial, Serif;
     font-size: calc(var(--button_size)*0.75);
     align-self: stretch;
     justify-self: stretch;
@@ -61,7 +61,7 @@
     grid-row: 2 / 3;
     color: white;
     background-color: rgb(75, 75, 75);
-    font-family: Arial;
+    font-family: Arial, Serif;
     font-size: calc(var(--button_size)*0.25);
     align-self: stretch;
     justify-self: stretch;
@@ -175,22 +175,11 @@
 }
 
 .console_grid{
+
     grid-column: 1 / 5 ;
     grid-row: 8 / 9;
 
-}
-
-/* COMMON FORMATING ELEMENTS */
-
-.display_guide, .sign_guide, .console_guide {
-
-    height: calc(var(--button_size)*0.75);
-
-}
-
-.console_grid{
-
-    font-family: Arial;
+    font-family: Arial, Serif;
     font-size: calc(var(--button_size)*0.2);
     align-self: stretch;
     justify-self: stretch;
@@ -202,8 +191,18 @@
 
 }
 
+/* COMMON FORMATING ELEMENTS */
+
+.display_guide, .sign_guide, .console_guide {
+
+    height: calc(var(--button_size)*0.75);
+
+}
+
+
+
 .ac_grid, .clear_grid, .seven_grid, .eight_grid, .nine_grid, .four_grid, .five_grid, .six_grid, .one_grid, .two_grid, .three_grid, .zero_grid, .negative_possitive_grid, .coma_grid, .divide_grid, .multiply_grid, .substract_grid, .add_grid, .equal_grid{
-    font-family: Arial;
+    font-family: Arial, Serif;
     align-self: stretch;
     justify-self: stretch;
     text-align: center;

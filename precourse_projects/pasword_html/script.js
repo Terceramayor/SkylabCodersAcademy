@@ -93,13 +93,13 @@ function check_valid_name(){    //Función para controla que se introduzca un no
     
     if (dim===player_name.length){
 
-        dim = false;
+        dim = -1;
         
     } else {
 
         dim = 0;
 
-    } if ( 0 === player_name.length || dim===false){
+    } if ( 0 === player_name.length || dim===-1){
 
         return false
 

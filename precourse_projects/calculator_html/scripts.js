@@ -211,7 +211,7 @@ function calculation_2b_done(what_2do){ //Una vez presionado un boton de operaci
 
     }
     
-};
+}
 
 function calculate(){   //Esta funcion realiza la secuencia de cálculos indicada
     
@@ -270,7 +270,7 @@ function calculate(){   //Esta funcion realiza la secuencia de cálculos indicad
         negative_or_possitive: 1
     };
 
-    status="initial"; "Se reinicia el estado de la calculadora"
+    status="initial"; //"Se reinicia el estado de la calculadora"
 
     sign_sequence.innerHTML= (result>=0)? "(+)":"(-)";
 

@@ -1,31 +1,31 @@
 let flights = [
 
-    { id: 00, to: 'Bilbao', from: 'Barcelona', cost: 1600, scale: false },
+    { id: 0, to: 'Bilbao', from: 'Barcelona', cost: 1600, scale: false },
 
-    { id: 01, to: 'New York', from: 'Barcelona', cost: 700, scale: false },
+    { id: 1, to: 'New York', from: 'Barcelona', cost: 700, scale: false },
 
-    { id: 02, to: 'Los Angeles', from: 'Madrid', cost: 1100, scale: true },
+    { id: 2, to: 'Los Angeles', from: 'Madrid', cost: 1100, scale: true },
 
-    { id: 03, to: 'Paris', from: 'Barcelona', cost: 210, scale: false },
+    { id: 3, to: 'Paris', from: 'Barcelona', cost: 210, scale: false },
 
-    { id: 04, to: 'Roma', from: 'Barcelona', cost: 150, scale: false },
+    { id: 4, to: 'Roma', from: 'Barcelona', cost: 150, scale: false },
 
-    { id: 05, to: 'London', from: 'Madrid', cost: 200, scale: false },
+    { id: 5, to: 'London', from: 'Madrid', cost: 200, scale: false },
 
-    { id: 06, to: 'Madrid', from: 'Barcelona', cost: 90, scale: false },
+    { id: 6, to: 'Madrid', from: 'Barcelona', cost: 90, scale: false },
 
-    { id: 07, to: 'Tokyo', from: 'Madrid', cost: 1500, scale: true },
+    { id: 7, to: 'Tokyo', from: 'Madrid', cost: 1500, scale: true },
 
-    { id: 08, to: 'Shangai', from: 'Barcelona', cost: 800, scale: true },
+    { id: 8, to: 'Shangai', from: 'Barcelona', cost: 800, scale: true },
 
-    { id: 09, to: 'Sydney', from: 'Barcelona', cost: 150, scale: true },
+    { id: 9, to: 'Sydney', from: 'Barcelona', cost: 150, scale: true },
 
     { id: 10, to: 'Tel-Aviv', from: 'Madrid', cost: 150, scale: false }];
 
 
 function flightsInfo(info){  //Esta funcion se encarga de motrar la info relacionada con la lista actual de vuelos para el día de hoy
 
-    today = new Date();
+    let today = new Date();
     let averCost = 0;
     let conectFlight = 0;
     let printScale="";
@@ -60,7 +60,7 @@ function flightsInfo(info){  //Esta funcion se encarga de motrar la info relacio
 
         
 
-        for (i=0; i<info.length; i++) {
+        for (let i=0; i<info.length; i++) {
 
             destinations = destinations +` ${info[i].to}`;
 
@@ -71,7 +71,7 @@ function flightsInfo(info){  //Esta funcion se encarga de motrar la info relacio
 
     } else { // Si la lista tiene mas de 5 vuelos,se mostraran los destinos de los ultimos cinco
 
-        for (i=info.length-5; i<info.length; i++) {
+        for (let i=info.length-5; i<info.length; i++) {
 
             destinations = destinations +` ${info[i].to}`;
 
@@ -108,17 +108,13 @@ function userType() {   //Esta función se encarga de identificar al usuario con
 
     } while (user.toLowerCase() !=`user` && user.toLowerCase() !=`admin`); //Solo se aceptan las entradas por teeclado "USER" o "ADMIN" en mayusculas
 
-    switch (user.toLowerCase()) {
+    if (user.toLowerCase()==="user"){
 
-        case "user":
+        user="USER";
 
-            user="USER";  
-        
-        break;
-        
-        default:
+    } else {
 
-            user="ADMIN";
+        user="ADMIN";
 
     }
    
@@ -333,26 +329,26 @@ function opUser(info) { //Esta funcion realizará las tareas permitidas si el us
 
                     let posPrice = 0; // Esta variable se utiliza para almacenar la posicion donde se halla el el vuelo cuyo coste es el introducido por el usuario (si hubiera).
                     let flightFlag = false; //Esta variable booleana sirve para idenntificar si se ha enocntrado un vuelo por el precio introducido por el usuario, en cuyo caso pasará a ser "true"
-                    let i=0;
+                    let pos=0;
 
-                    while (flightFlag == false && i<info.length){
+                    while (flightFlag == false && pos<info.length){
 
                         flightFlag=false;
                     
-                        if (info[i].cost==price) {
+                        if (info[pos].cost.toString()===price) {
 
-                            posPrice=i;
+                            posPrice=pos;
                             flightFlag=true;
-                            i++
+                            pos++
                                                    
                         } else {
 
-                            i++
+                            pos++
 
                         }
                     }                         
                     
-                    if (flightFlag==true) {
+                    if (flightFlag===true) {
 
                         console.log(`The flight that departs from ${info[posPrice].from} and lands at ${info[posPrice].to} has a cost of ${info[posPrice].cost}`);
 

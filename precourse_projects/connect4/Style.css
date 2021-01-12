@@ -74,7 +74,7 @@
     background-color: rgb(227, 255, 211);
     margin: 0;
 
-    font-family: 'font';
+    font-family: 'font', sans-serif;
     font-size: 1vw;
     font-weight: bold;
 
@@ -972,7 +972,7 @@
 
                     background-color: var(--buttonPlusHover); 
 
-                    font-family: 'font';
+                    font-family: 'font',sans-serif;
                     font-weight: bold;
                     font-size: 1vw;
 
@@ -990,7 +990,7 @@
                 .gameControlsButtons:active{
 
                     font-size: 2vw;
-                    background-color: var(--buttonPlusActive);; 
+                    background-color: var(--buttonPlusActive);
 
                 }
 

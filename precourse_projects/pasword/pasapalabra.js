@@ -114,7 +114,7 @@ function ini() {  //Esta función pide el nombre del usuario
     
     let dim=0;
 
-    name = prompt(`WELCOME THE TO SKYLAB PASAPALABRA GAME.TO BEGIN, PLEASE STATE YOUR NAME: `, `name?`);
+    let name = prompt(`WELCOME THE TO SKYLAB PASAPALABRA GAME.TO BEGIN, PLEASE STATE YOUR NAME: `, `name?`);
 
     for (let i=0; i<name.length;i++){       //Comprobamos si se han introducido solo espacios
 
@@ -124,13 +124,17 @@ function ini() {  //Esta función pide el nombre del usuario
     
     if (dim===name.length){
 
-        dim = false;
+        dim = -1;
         
     } else {
 
         dim = 0;
 
-    } while (typeof(name)!="string" || name==="name?" || 0 === name.length || dim===false || name==="null"){
+    } while (typeof(name)!="string" || name==="name?" || 0 === name.length || dim===-1 || name==="null"){
+
+        dim = 0;
+
+        debugger
 
         console.log(`Please insert a valid name!`)
         name = prompt(`WELCOME THE TO SKYLAB PASAPALABRA GAME.TO BEGIN, PLEASE STATE YOUR NAME: `, `name?`);
@@ -143,7 +147,7 @@ function ini() {  //Esta función pide el nombre del usuario
         
         if (dim===name.length){
     
-            dim = false;
+            dim = -1;
                 
         } else {
 
@@ -387,10 +391,14 @@ while (stopcondition==false) {
         
         letterNum = (letterNum===26) ? 0 : letterNum +1;
 
-        while((questions[letterNum][level].status=="incorrect" || questions[letterNum][level].status=="correct") && remaining!==0){
+        if (remaining!==0){
 
-            letterNum = (letterNum===26) ? 0 : letterNum +1;
+            while((questions[letterNum][level].status=="incorrect" || questions[letterNum][level].status=="correct")){
 
+                letterNum = (letterNum===26) ? 0 : letterNum +1;
+
+            }
+            
         }
 
     } while (letterNum<questions.length && stopcondition==false && remaining!==0)
